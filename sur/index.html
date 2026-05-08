@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern Taiwanese Restaurant in Taichung">
+    <meta property="og:title" content="Sur- | index">
+    <meta property="og:description" content="Modern Taiwanese Restaurant in Taichung">
+    <meta property="og:url" content="https://www.surcuisine.com/sur/">
+    <meta property="og:image" content="https://www.surcuisine.com/sur/images/fbShareImg.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <title>Sur- | index</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/comm.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.indexSlide').slick({
+                infinite: true,
+                speed: 2000,
+                autoplaySpeed: 3000,
+                pauseOnHover: false,
+                autoplay: true,
+                fade: true,
+                swipe: false,
+                arrows: false,
+                dots: false,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        });
+    </script>
+</head>
+<body oncontextmenu="return false">
+
+    <div id="app">
+
+        <!-- ===== HEADER ===== -->
+        <!-- <?php include '../partials/sur-header.php'; ?> -->
+        <div class="header">
+            <ul class="navList">
+                <li class="openNav">
+                    <div class="openNavBar"></div>
+                </li>
+            </ul>
+            <a href="index.html"><img class="logo" src="images/logo.svg" alt="Sur-"></a>
+            <a target="_blank" href="https://inline.app/booking/taichung/surcuisinetw" class="button reservations">
+                <div class="button__BG">
+                    <div class="button__BG__content">reservations</div>
+                </div>
+                <div class="button__content">reservations</div>
+            </a>
+        </div>
+        <!-- ===== /HEADER ===== -->
+
+        <div class="content content--index">
+            <div class="indexSlide">
+                <div class="indexSlide__item">
+                    <img src="images/slide-1.jpg" alt="">
+                </div>
+                <div class="indexSlide__item">
+                    <img src="images/slide-2.jpg" alt="">
+                </div>
+                <div class="indexSlide__item">
+                    <img src="images/slide-3.jpg" alt="">
+                </div>
+                <div class="indexSlide__item">
+                    <img src="images/slide-4.jpg" alt="">
+                </div>
+            </div>
+            <div class="star">
+                <img src="images/star.svg" alt="">
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <!-- <?php include '../partials/sur-footer.php'; ?> -->
+        <div class="footer">
+            <div class="footerPattern">
+                <img src="images/footer-logo.svg" alt="">
+                <p>
+                    Modern<br>
+                    Taiwanese Restaurant<br>
+                    in Taichung
+                </p>
+            </div>
+            <div class="copyright">
+                Copyright &copy; 2022 surcuisine, All Rights Reserved
+            </div>
+        </div>
+        <!-- ===== /FOOTER ===== -->
+
+        <!-- ===== NAV ===== -->
+        <!-- <?php include '../partials/sur-nav.php'; ?> -->
+        <div class="closeNav"></div>
+        <ul class="mainNav">
+            <li><a href="info.html">Info</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li class="RWDShow">
+                <a target="_blank" href="https://inline.app/booking/taichung/surcuisinetw">reservations</a>
+            </li>
+            <li>
+                <a href="../index.html">
+                    <img src="images/back.svg" alt="">Home
+                </a>
+            </li>
+            <li>
+                <ul class="socialList">
+                    <li>
+                        <a href="https://www.facebook.com/SurCuisine">
+                            <img src="images/fb.svg" alt="Facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/sur_cuisine/">
+                            <img src="images/ig.svg" alt="Instagram">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- ===== /NAV ===== -->
+
+    </div>
+
+    <div class="cover"></div>
+    <div class="cover--index"></div>
+
+</body>
+</html>

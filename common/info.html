@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="COMMON | Info">
+    <meta property="og:title" content="COMMON | Info">
+    <meta property="og:description" content="COMMON — 台中中區">
+    <meta property="og:url" content="https://www.surcuisine.com/common/info">
+    <title>COMMON | Info</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/comm.js"></script>
+    <!-- 請替換 YOUR_API_KEY -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var mapStyle = [
+                {"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},
+                {"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},
+                {"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},
+                {"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},
+                {"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},
+                {"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},
+                {"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},
+                {"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},
+                {"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},
+                {"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},
+                {"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},
+                {"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},
+                {"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]},
+                {"featureType":"water","elementType":"geometry.fill","stylers":[{"saturation":"-100"},{"lightness":"-100"},{"gamma":"0.00"}]}
+            ];
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: new google.maps.LatLng(24.13766903999159, 120.68334670674241),
+                styles: mapStyle
+            });
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(24.13766903999159, 120.68334670674241),
+                map: map,
+                title: 'COMMON'
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: '<a href="https://maps.google.com/?q=台中市中區中山路29號2樓" target="_blank" style="color:#3d2414;">COMMON</a>'
+            });
+            marker.addListener('click', function () {
+                infowindow.open({ anchor: marker, map: map });
+            });
+        }
+    </script>
+</head>
+<body oncontextmenu="return false">
+
+    <div id="app">
+
+        <!-- ===== HEADER ===== -->
+        <!-- <?php include '../partials/common-header.php'; ?> -->
+        <div class="header header--inside">
+            <ul class="navList">
+                <li class="openNav">
+                    <div class="openNavBar"></div>
+                </li>
+            </ul>
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="COMMON"></a>
+            <a target="_blank" href="#" class="button">
+                <div class="button__BG">
+                    <div class="button__BG__content">Shop</div>
+                </div>
+                <div class="button__content">Shop</div>
+            </a>
+        </div>
+        <!-- ===== /HEADER ===== -->
+
+        <div class="content content--inside">
+
+            <div class="banner--info">
+                <img src="images/info-banner.png" alt="">
+            </div>
+
+            <div class="info layer">
+                <div class="wrapper">
+                    <div class="insideTitle">Info</div>
+                    <div class="insideContent">
+                        <p>COMMON 被想像為城市的半後台，它不位於舞台中央，也不隱身於幕後，而是在兩者之間的留白處。也像是城市的呼吸室，人在其中，不需要被定義為任何角色，也不必完成任何表現，但呼吸的節奏變得明確，胸腔的起伏逐漸明顯，在反覆吸與吐之間，意識慢慢清晰。</p>
+                        <p>我們期許來訪的人，能獲得「大口喝得滿足感」，那是一個需要放慢的動作，彷如舉辦一場隆重卻日常的深呼吸，入口時深吸，嚥下時屏息，吐氣時餘韻鋪展。一口接一口，思緒變得舒暢明亮，對話也被允許深且長。</p>
+                        <p>COMMON 所珍惜的，是透過一杯飲品，能夠在好好地吸、吐與屏息間，回到彼此真實而緩慢的連結。</p>
+                    </div>
+                    <ul class="insideList">
+                        <li>2nd Floor, No. 29, Zhongshan Road, Central District, Taichung City</li>
+                        <li>commonstudiotw@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="map"></div>
+
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <!-- <?php include '../partials/common-footer.php'; ?> -->
+        <div class="footer footer--inside">
+            <span class="footer-logo"><img src="images/logo.svg" alt="COMMON"></span>
+            <div class="copyright">
+                Copyright &copy; 2023 surcuisine, All Rights Reserved
+            </div>
+        </div>
+        <!-- ===== /FOOTER ===== -->
+
+        <!-- ===== NAV ===== -->
+        <!-- <?php include '../partials/common-nav.php'; ?> -->
+        <div class="closeNav"></div>
+        <ul class="mainNav">
+            <li><a href="info.html">Info</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li class="RWDShow">
+                <a target="_blank" href="#">Shop</a>
+            </li>
+            <li>
+                <a href="../index.html">
+                    <img src="images/back.svg" alt="">Home
+                </a>
+            </li>
+            <li>
+                <ul class="socialList">
+                    <li>
+                        <a href="https://www.facebook.com/commonstudiotw">
+                            <img src="images/fb.svg" alt="Facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/common.studio.tw">
+                            <img src="images/ig.svg" alt="Instagram">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- ===== /NAV ===== -->
+
+    </div>
+
+    <div class="cover"></div>
+    <div class="cover--index"></div>
+
+</body>
+</html>

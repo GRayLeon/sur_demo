@@ -1,0 +1,565 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Sans+TC:wght@100;400&family=Outfit:wght@300;600&display=swap");
+
+/* ============================================================
+   Reset
+   ============================================================ */
+html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+hr { box-sizing: content-box; height: 0; overflow: visible; }
+a { background-color: transparent; }
+img { border-style: none; }
+button, input, optgroup, select, textarea {
+    font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0;
+}
+button, input { overflow: visible; }
+button, select { text-transform: none; }
+button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; }
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+    border-style: none; padding: 0;
+}
+[type="checkbox"], [type="radio"] { box-sizing: border-box; padding: 0; }
+[type="search"] { -webkit-appearance: textfield; outline-offset: -2px; }
+[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+::-webkit-file-upload-button { -webkit-appearance: button; font: inherit; }
+details { display: block; }
+summary { display: list-item; }
+template, [hidden] { display: none; }
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,
+q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+    margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* ============================================================
+   Base
+   ============================================================ */
+body {
+    font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+    background: #3d2414;
+}
+
+* { box-sizing: border-box; }
+
+#app {
+    opacity: 0;
+    transition: 1s;
+}
+#app.show {
+    opacity: 1;
+}
+
+a {
+    transition: .3s;
+    color: #f0e8d8;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    letter-spacing: 2px;
+}
+
+p {
+    line-height: 35px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: justify;
+    color: #f0e8d8;
+}
+p + p {
+    margin-top: 35px;
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 25px 50px;
+    z-index: 99;
+}
+
+.header .navList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.header .navList li {
+    font-size: 16px;
+    color: #f0e8d8;
+    cursor: pointer;
+}
+.header .navList li .openNavBar {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    border-top: #f0e8d8 2px solid;
+    border-bottom: #f0e8d8 2px solid;
+    transition: .2s;
+}
+.header .navList li .openNavBar:before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    width: 30px;
+    height: 2px;
+    background: #f0e8d8;
+}
+.header .navList li .openNavBar:hover {
+    height: 30px;
+}
+.header .navList li + li {
+    margin-left: 25px;
+}
+
+/* Text-based logo */
+.header .logo {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 25px;
+    line-height: 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 19px;
+    letter-spacing: 0.45em;
+    color: #f0e8d8;
+    text-decoration: none;
+    white-space: nowrap;
+    display: block;
+    text-align: center;
+}
+.header .logo img {
+    height: 25px;
+    width: auto;
+    display: block;
+}
+.header .logo:hover {
+    letter-spacing: 0.45em;
+    opacity: 0.7;
+}
+
+.header .linkList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+}
+
+/* ============================================================
+   Button
+   ============================================================ */
+.button {
+    position: relative;
+    display: inline-block;
+    color: #f0e8d8;
+    text-align: center;
+    border: #f0e8d8 1px solid;
+    cursor: pointer;
+}
+.button__content {
+    padding: 15px 25px;
+    line-height: 15px;
+}
+.button__BG {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #f0e8d8;
+    overflow: hidden;
+    transition: .5s;
+}
+.button__BG__content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+    line-height: 15px;
+    color: #3d2414;
+}
+.button:hover .button__BG {
+    height: 100%;
+}
+.button:hover {
+    letter-spacing: 0;
+}
+
+/* ============================================================
+   Main Nav (side drawer)
+   ============================================================ */
+.mainNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 0;
+    height: 100%;
+    padding: 50px 0;
+    background: rgba(30, 15, 5, 0.95);
+    opacity: 0;
+    z-index: 999;
+    overflow: hidden;
+    transition: .5s;
+}
+.mainNav > li {
+    color: #f0e8d8;
+    opacity: 0;
+    transition: 1s;
+    transition-delay: .5s;
+}
+.mainNav > li.RWDShow {
+    display: none;
+}
+.mainNav > li > a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+.mainNav > li > a > img {
+    height: 15px;
+    margin-right: 10px;
+}
+.mainNav > li + li {
+    margin-top: 15px;
+}
+.mainNav .socialList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+.mainNav .socialList li {
+    transition: .3s;
+}
+.mainNav .socialList li img {
+    height: 25px;
+}
+.mainNav .socialList li + li {
+    margin-left: 15px;
+}
+.mainNav .socialList li:hover {
+    filter: brightness(200%);
+}
+.mainNav.open {
+    width: 25%;
+    padding: 50px;
+    opacity: 1;
+}
+.mainNav.open li {
+    opacity: 1;
+}
+
+.closeNav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    mix-blend-mode: luminosity;
+    z-index: 99;
+}
+
+/* ============================================================
+   Cover (page transition)
+   ============================================================ */
+.cover {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3d2414;
+    z-index: 999;
+}
+.cover--index {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1e0f08;
+    z-index: 999;
+}
+
+/* ============================================================
+   Content helpers
+   ============================================================ */
+.layer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wrapper {
+    width: calc(100% - 50px);
+    max-width: 768px;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    padding: 50px;
+    background: transparent;
+}
+.footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 17px;
+    letter-spacing: 0.45em;
+    color: #f0e8d8;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.footer-logo img {
+    height: 20px;
+    width: auto;
+    display: block;
+}
+.footer .copyright {
+    color: #b8a48c;
+    font-size: 12px;
+}
+
+/* ============================================================
+   Index page
+   ============================================================ */
+.content--index {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.content--index .index-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* ============================================================
+   Inside pages (menu / info)
+   ============================================================ */
+.header--inside,
+.content--inside,
+.footer--inside {
+    position: static;
+}
+
+.footer--inside {
+    background: #3d2414;
+    padding: 50px;
+}
+
+/* ============================================================
+   Menu page
+   ============================================================ */
+.menu-banner {
+    margin-top: 100px; /* offset fixed header */
+}
+.menu-banner picture,
+.menu-card picture {
+    display: block;
+    width: 100%;
+}
+.menu-banner picture img,
+.menu-card picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+   Info page
+   ============================================================ */
+.banner--info {
+    margin-top: 0;
+}
+.banner--info img {
+    width: 100%;
+    height: calc(200vh / 3);
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.info {
+    padding: 100px 0;
+    background: #3d2414;
+}
+
+.insideTitle {
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: 100;
+    text-align: center;
+    color: #b8a48c;
+    letter-spacing: 4px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.insideContent {
+    margin-bottom: 50px;
+}
+
+.insideList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.insideList li {
+    line-height: 35px;
+    letter-spacing: 1px;
+    color: #b8a48c;
+    font-size: 15px;
+}
+
+#map {
+    width: 100%;
+    height: 650px;
+}
+
+/* ============================================================
+   RWD – 768px
+   ============================================================ */
+@media screen and (max-width: 768px) {
+    p {
+        line-height: 25px;
+        font-size: 14px;
+    }
+    p + p {
+        margin-top: 35px;
+    }
+
+    .header {
+        height: 65px;
+        padding: 15px;
+    }
+    .header .logo {
+        top: 22px;
+        font-size: 15px;
+        letter-spacing: 0.35em;
+        height: 20px;
+        line-height: 20px;
+    }
+    .header a.button {
+        display: none;
+    }
+    .header .linkList li:not(:has(.button)) {
+        display: block;
+    }
+    .header .linkList .button {
+        display: none;
+    }
+
+    .button {
+        font-size: 12px;
+    }
+    .button__content {
+        width: 80px;
+        padding: 5px 0;
+        line-height: 15px;
+    }
+    .button__BG__content {
+        padding: 5px 0;
+    }
+
+    .footer--inside {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+        gap: 10px;
+    }
+
+    .mainNav > li.RWDShow {
+        display: block;
+    }
+    .mainNav > li > a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+    }
+    .mainNav > li > a > img {
+        height: 10px;
+    }
+    .mainNav.open {
+        width: 65%;
+        padding: 50px;
+        opacity: 1;
+    }
+
+    .menu-banner {
+        margin-top: 65px;
+    }
+
+    .banner--info img {
+        height: 200px;
+    }
+
+    .info {
+        padding: 50px 0;
+    }
+
+    .insideTitle {
+        font-size: 20px;
+        margin-bottom: 35px;
+    }
+
+    .insideList li {
+        text-align: center;
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .insideList li + li {
+        margin-top: 8px;
+    }
+
+    #map {
+        height: 350px;
+    }
+}

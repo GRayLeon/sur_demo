@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern Gelato Experiences in Taichung">
+    <meta property="og:title" content="MINIMAL | info">
+    <meta property="og:description" content="Modern Gelato Experiences in Taichung">
+    <meta property="og:url" content="https://www.surcuisine.com/minimal/info">
+    <meta property="og:image" content="https://www.surcuisine.com/minimal/images/fbShareImg.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <title>MINIMAL | info</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/comm.js"></script>
+    <!-- 請替換 YOUR_API_KEY -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var mapStyle = [
+                {"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},
+                {"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},
+                {"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},
+                {"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},
+                {"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},
+                {"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},
+                {"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},
+                {"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},
+                {"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},
+                {"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},
+                {"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},
+                {"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},
+                {"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]},
+                {"featureType":"water","elementType":"geometry.fill","stylers":[{"saturation":"-100"},{"lightness":"-100"},{"gamma":"0.00"}]}
+            ];
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: new google.maps.LatLng(24.151699204176168, 120.66234147285837),
+                styles: mapStyle
+            });
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(24.151699204176168, 120.66234147285837),
+                map: map,
+                title: 'MINIMAL'
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: '<a href="https://g.page/minimal_gelato?share" target="_blank" style="color:#333;">MINIMAL</a>'
+            });
+            marker.addListener('click', function () {
+                infowindow.open({ anchor: marker, map: map });
+            });
+        }
+    </script>
+</head>
+<body oncontextmenu="return false">
+
+    <div id="app">
+
+        <!-- ===== HEADER ===== -->
+        <!-- <?php include '../partials/minimal-header.php'; ?> -->
+        <div class="header header--inside">
+            <ul class="navList">
+                <li class="openNav">
+                    <div class="openNavBar"></div>
+                </li>
+            </ul>
+            <a href="index.html"><img class="logo" src="images/logo.svg" alt="MINIMAL"></a>
+            <ul class="linkList">
+                <li>
+                    <a target="_blank" href="https://minimal-gelato.myshopify.com/password" class="button reservations">
+                        <div class="button__BG">
+                            <div class="button__BG__content">shop</div>
+                        </div>
+                        <div class="button__content">shop</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- ===== /HEADER ===== -->
+
+        <div class="content content--inside">
+            <div class="banner--info">
+                <img src="images/info-banner.jpg" alt="">
+            </div>
+            <div class="info layer">
+                <div class="wrapper">
+                    <div class="insideTitle">Info</div>
+                    <div class="insideContent">
+                        <p>MINIMAL 是一間以現代料理的思維做為主軸的冰淇淋店。在這裡我們藉由冰淇淋來傳遞想法、傳遞風味，我們試著把大量的想法與工法凝鍊，用現代的手法來詮釋簡樸。</p>
+                        <p>MINIMAL — 語意為最小的、極微的，現今也被當作極簡。冰淇淋是最為純粹的一種食物，從食材把風味賦予後，除去所有雜餘，只留下最簡單的狀態。歡迎至 MINIMAL 重新體驗純粹與簡單。</p>
+                    </div>
+                    <ul class="insideList">
+                        <li>台中市西區美村路一段133巷16號</li>
+                        <li>minimal.gelato@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <!-- <?php include '../partials/minimal-footer.php'; ?> -->
+        <div class="footer footer--inside">
+            <div class="footerPattern">
+                <img src="images/footer-logo.svg" alt="">
+                <p>
+                    Modern<br>
+                    Gelato Experiences<br>
+                    in Taichung
+                </p>
+            </div>
+            <div class="copyright">
+                Copyright &copy; 2022 surcuisine, All Rights Reserved
+            </div>
+        </div>
+        <!-- ===== /FOOTER ===== -->
+
+        <!-- ===== NAV ===== -->
+        <!-- <?php include '../partials/minimal-nav.php'; ?> -->
+        <div class="closeNav"></div>
+        <ul class="mainNav">
+            <li><a href="info.html">Info</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li class="RWDShow">
+                <a target="_blank" href="https://minimal-gelato.myshopify.com/password">shop</a>
+            </li>
+            <li>
+                <a href="../index.html">
+                    <img src="images/back.svg" alt="">Home
+                </a>
+            </li>
+            <li>
+                <ul class="socialList">
+                    <li>
+                        <a href="https://www.facebook.com/minimal.gelato/">
+                            <img src="images/fb.svg" alt="Facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/minimal_gelato/">
+                            <img src="images/ig.svg" alt="Instagram">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- ===== /NAV ===== -->
+
+    </div>
+
+    <div class="cover"></div>
+    <div class="cover--index"></div>
+
+</body>
+</html>
