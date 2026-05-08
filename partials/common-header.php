@@ -12,7 +12,7 @@ $headerClass = !empty($innerPage) ? 'header header--inside' : 'header';
             <div class="openNavBar"></div>
         </li>
     </ul>
-    <a href="index.html" class="logo">COMMON</a>
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="COMMON"></a>
     <a target="_blank" href="#" class="button">
         <div class="button__BG">
             <div class="button__BG__content">Shop</div>

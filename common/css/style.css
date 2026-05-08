@@ -108,15 +108,15 @@ p + p {
 }
 .header .navList li {
     font-size: 16px;
-    color: #f0e8d8;
+    color: #4A362B;
     cursor: pointer;
 }
 .header .navList li .openNavBar {
     position: relative;
     width: 30px;
     height: 20px;
-    border-top: #f0e8d8 2px solid;
-    border-bottom: #f0e8d8 2px solid;
+    border-top: #4A362B 2px solid;
+    border-bottom: #4A362B 2px solid;
     transition: .2s;
 }
 .header .navList li .openNavBar:before {
@@ -125,7 +125,7 @@ p + p {
     top: calc(50% - 1px);
     width: 30px;
     height: 2px;
-    background: #f0e8d8;
+    background: #4A362B;
 }
 .header .navList li .openNavBar:hover {
     height: 30px;
@@ -141,22 +141,23 @@ p + p {
     left: 50%;
     transform: translateX(-50%);
     width: auto;
-    height: 25px;
+    height: 35px;
     line-height: 25px;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     font-size: 19px;
     letter-spacing: 0.45em;
-    color: #f0e8d8;
+    color: #4A362B;
     text-decoration: none;
     white-space: nowrap;
     display: block;
     text-align: center;
 }
 .header .logo img {
-    height: 25px;
+    height: 35px;
     width: auto;
     display: block;
+    filter: brightness(0.2) sepia(1) saturate(1.5) hue-rotate(350deg);
 }
 .header .logo:hover {
     letter-spacing: 0.45em;
@@ -169,6 +170,16 @@ p + p {
     align-items: center;
     gap: 15px;
     list-style: none;
+}
+.header .button {
+    color: #4A362B;
+    border-color: #4A362B;
+}
+.header .button .button__BG {
+    background: #4A362B;
+}
+.header .button .button__BG__content {
+    color: #f0e8d8;
 }
 
 /* ============================================================
@@ -354,7 +365,7 @@ p + p {
     white-space: nowrap;
 }
 .footer-logo img {
-    height: 20px;
+    height: 30px;
     width: auto;
     display: block;
 }
@@ -390,6 +401,9 @@ p + p {
 .footer--inside {
     position: static;
 }
+.header--inside {
+    background: none;
+}
 
 .footer--inside {
     background: #3d2414;
@@ -400,7 +414,7 @@ p + p {
    Menu page
    ============================================================ */
 .menu-banner {
-    margin-top: 100px; /* offset fixed header */
+    margin-top: -100px;
 }
 .menu-banner picture,
 .menu-card picture {
@@ -418,7 +432,7 @@ p + p {
    Info page
    ============================================================ */
 .banner--info {
-    margin-top: 0;
+    margin-top: -100px;
 }
 .banner--info img {
     width: 100%;
@@ -534,9 +548,12 @@ p + p {
     }
 
     .menu-banner {
-        margin-top: 65px;
+        margin-top: -65px;
     }
 
+    .banner--info {
+        margin-top: -65px;
+    }
     .banner--info img {
         height: 200px;
     }
