@@ -59,30 +59,41 @@
     </div>
 
     <script>
-        const app     = document.getElementById('app');
-        const cover   = document.querySelector('.cover');
+        const app      = document.getElementById('app');
+        const cover    = document.querySelector('.cover');
         const navItems = document.querySelectorAll('.nav-item');
+        const sites    = ['sur', 'minimal', 'common'];
+        let currentIndex = 0;
+        let carouselTimer = null;
+        let isMobile = window.matchMedia('(max-width: 768px)').matches;
 
         // Fade in on load
         window.addEventListener('load', () => {
             app.classList.add('show');
-        });
-
-        // Hover: swap active site
-        navItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                activate(item.dataset.site);
-            });
+            startCarousel();
         });
 
         function activate(site) {
             app.className = 'show active-' + site;
+            currentIndex = sites.indexOf(site);
         }
+
+        // Desktop hover: pause carousel, resume on leave
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                stopCarousel();
+                activate(item.dataset.site);
+            });
+            item.addEventListener('mouseleave', () => {
+                startCarousel();
+            });
+        });
 
         // Click: fade out then navigate
         navItems.forEach(item => {
             item.addEventListener('click', e => {
                 e.preventDefault();
+                stopCarousel();
                 const href = item.getAttribute('href');
                 cover.style.display = 'block';
                 cover.style.opacity = '0';
@@ -95,6 +106,41 @@
                 setTimeout(() => { window.location.href = href; }, 650);
             });
         });
+
+        // ── Carousel ──────────────────────────────────────────
+        function startCarousel() {
+            stopCarousel();
+            carouselTimer = setInterval(() => {
+                currentIndex = (currentIndex + 1) % sites.length;
+                activate(sites[currentIndex]);
+            }, 3000);
+        }
+
+        function stopCarousel() {
+            if (carouselTimer) {
+                clearInterval(carouselTimer);
+                carouselTimer = null;
+            }
+        }
+
+        // Touch swipe
+        let touchStartX = 0;
+        app.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        app.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) < 40) return;
+            stopCarousel();
+            if (dx < 0) {
+                currentIndex = (currentIndex + 1) % sites.length;
+            } else {
+                currentIndex = (currentIndex - 1 + sites.length) % sites.length;
+            }
+            activate(sites[currentIndex]);
+            startCarousel();
+        }, { passive: true });
     </script>
 
 </body>

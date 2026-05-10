@@ -182,6 +182,29 @@ p + p {
     color: #f0e8d8;
 }
 
+.header--index .navList li {
+    color: white;
+}
+.header--index .navList li .openNavBar {
+    border-color: white;
+}
+.header--index .navList li .openNavBar:before {
+    background: white;
+}
+.header--index .logo img {
+    filter: none;
+}
+.header--index .button {
+    color: white;
+    border-color: white;
+}
+.header--index .button .button__BG {
+    background: white;
+}
+.header--index .button .button__BG__content {
+    color: #4A362B;
+}
+
 /* ============================================================
    Button
    ============================================================ */

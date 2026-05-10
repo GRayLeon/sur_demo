@@ -165,18 +165,39 @@ a { text-decoration: none; }
         left: 20px;
     }
     .top-logo__item {
-        height: 16px;
+        height: 20px;
+    }
+    .top-logo__item--common {
+        height: 28px;
     }
 
     .bottom-nav {
-        bottom: 32px;
-        gap: 12px;
+        bottom: 44px;
+        gap: 20px;
+        height: 100%;
     }
     .bottom-nav__logos {
-        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 36px;
+        height: 100%;
         padding: 0 24px;
     }
+    .nav-item--sur,
+    .nav-item--minimal,
+    .nav-item--common {
+        justify-self: auto;
+    }
     .nav-item img {
-        height: 14px;
+        height: 90px;
+    }
+    .nav-item--sur img,
+    .nav-item--minimal img {
+        height: 75px;
+    }
+    .nav-item--common img {
+        height: 75px;
     }
 }
